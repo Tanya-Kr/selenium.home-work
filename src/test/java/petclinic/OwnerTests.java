@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.*;
@@ -28,12 +29,12 @@ public class OwnerTests extends TestBase {
         List<WebElement> ownersList = ownersTable.findElements(By.xpath(".//tbody/tr"));
         assertFalse(ownersList.isEmpty());
 
-//        List<Owner> ownerList = new ArrayList<>();
-//        for (WebElement userRow : ownersList) {
-//            ownerList.add(createOwner(userRow));
-//        }
-//
-//        System.out.println(ownerList);
+        List<Owner> ownerList = new ArrayList<>();
+        for (WebElement userRow : ownersList) {
+            ownerList.add(createOwner(userRow));
+        }
+
+        System.out.println(ownerList);
         WebElement userRow = ownersList.get(0);
         Owner owner = createOwner(userRow);
         userRow.findElement(By.xpath("./td/a")).click();

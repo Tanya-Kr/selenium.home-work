@@ -90,6 +90,7 @@ public class Owner {
                 ", telephone='" + telephone + '\'' +
                 '}';
     }
+
 //
     @Override
     public boolean equals(Object o) {

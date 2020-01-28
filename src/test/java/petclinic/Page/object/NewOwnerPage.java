@@ -1,4 +1,5 @@
 package petclinic.Page.object;
+import org.openqa.selenium.Keys;
 import petclinic.model.Owner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +34,8 @@ public class NewOwnerPage {
 
     public void clearFirstName() {
         WebElement name = firstNameField();
-        name.clear();
+        name.sendKeys(Keys.CONTROL + "a");
+        name.sendKeys(Keys.DELETE);
     }
 
     public void setLastName(String lastName) {
@@ -44,7 +46,8 @@ public class NewOwnerPage {
 
     public void clearLastName() {
         WebElement lastNameField = driver.findElement(lastNameInputField);
-        lastNameField.clear();
+        lastNameField.sendKeys(Keys.CONTROL + "a");
+        lastNameField.sendKeys(Keys.DELETE);
     }
 
     public void setAddress(String address) {
@@ -53,16 +56,34 @@ public class NewOwnerPage {
         addressField.sendKeys(address);
     }
 
+    public void clearAddress() {
+        WebElement addressField = driver.findElement(By.id("address"));
+        addressField.sendKeys(Keys.CONTROL + "a");
+        addressField.sendKeys(Keys.DELETE);
+    }
+
     public void setCity(String city) {
         WebElement cityField = driver.findElement(By.id("city"));
         cityField.clear();
         cityField.sendKeys(city);
     }
 
+    public void clearCity() {
+        WebElement cityField = driver.findElement(By.id("city"));
+        cityField.sendKeys(Keys.CONTROL + "a");
+        cityField.sendKeys(Keys.DELETE);
+    }
+
     public void setTelephone(String telephone) {
         WebElement telephoneField = driver.findElement(By.id("telephone"));
         telephoneField.clear();
         telephoneField.sendKeys(telephone);
+    }
+
+    public void clearTelephone() {
+        WebElement telephoneField = driver.findElement(By.id("telephone"));
+        telephoneField.sendKeys(Keys.CONTROL + "a");
+        telephoneField.sendKeys(Keys.DELETE);
     }
 
     public OwnersPage clickAddOwnerButton() {
