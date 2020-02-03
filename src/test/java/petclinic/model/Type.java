@@ -1,10 +1,8 @@
-package com.automation.petclinic.model;
+package petclinic.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * Created by alpa on 1/16/20
- */
+
 public class Type {
 
     @JsonProperty("id")
