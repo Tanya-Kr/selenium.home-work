@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Vet {
     @JsonProperty("firstName")
@@ -72,4 +73,20 @@ public class Vet {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vet vet = (Vet) o;
+        return Objects.equals(firstName, vet.firstName) &&
+                Objects.equals(id, vet.id) &&
+                Objects.equals(lastName, vet.lastName) &&
+                Objects.equals(specialty, vet.specialty) &&
+                Objects.equals(additionalProperties, vet.additionalProperties);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, id, lastName, specialty, additionalProperties);
+    }
 }

@@ -1,6 +1,7 @@
 package petclinic.Page.object;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -21,6 +22,7 @@ public class NewVeterinarianPage {
     public void fillVet(Vet vet) {
         setFirstName(vet.getFirstName());
         setLastName(vet.getLastName());
+        setType(vet.getSpecialty());
     }
 
     public void setFirstName(String firstName) {
@@ -31,7 +33,8 @@ public class NewVeterinarianPage {
 
     public void clearFirstName() {
         WebElement name = driver.findElement(firstNameInputField);
-        name.clear();
+        name.sendKeys(Keys.CONTROL + "a");
+        name.sendKeys(Keys.DELETE);
     }
 
     public void setLastName(String lastName) {
@@ -41,14 +44,15 @@ public class NewVeterinarianPage {
     }
 
     public void clearLastName() {
-        WebElement lastNameField = driver.findElement(lastNameInputField);
-        lastNameField.clear();
+        WebElement name = driver.findElement(lastNameInputField);
+        name.sendKeys(Keys.CONTROL + "a");
+        name.sendKeys(Keys.DELETE);
     }
 
-    public void setType() {
+    public void setType(String type) {
         WebElement typeField = driver.findElement(By.id("specialties"));
         Select typeSelector = new Select(typeField);
-        typeSelector.selectByIndex(1);
+        typeSelector.selectByVisibleText(type);
     }
 
     public VeterinariansPage clickAddVetButton(){

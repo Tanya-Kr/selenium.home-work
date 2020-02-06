@@ -24,16 +24,16 @@ public class VeterinariansPage extends BasePage {
         WebElement vetsTable = driver.findElement(By.id("vets"));
 
         List<WebElement> vetsList = vetsTable.findElements(By.xpath(".//tbody/tr"));
-        for (WebElement userRow : vetsList) {
-            vets.add(createVet(userRow));
+        for (WebElement vetsRow : vetsList) {
+            vets.add(createVet(vetsRow));
         }
 
         return vets;
     }
 
-    private Vet createVet(WebElement userRow) {
+    private Vet createVet(WebElement vetsRow) {
         Vet vet = new Vet();
-        String fullName = userRow.findElement(By.xpath("./td[1]")).getText();
+        String fullName = vetsRow.findElement(By.xpath("./td[1]")).getText();
         String[] fullNameArray = fullName.split(" ");
         if (fullNameArray.length > 1) {
             vet.setFirstName(fullNameArray[0]);
@@ -42,10 +42,12 @@ public class VeterinariansPage extends BasePage {
             vet.setFirstName(fullNameArray[0]);
         }
 
-//        String specialty = userRow.findElement(By.xpath("./td[2]")).getText();
-//        if(!specialty.isEmpty()) {
-//            vet.setSpecialty(null);
-//        }
+        String specialty = vetsRow.findElement(By.xpath("./td[2]")).getText();
+        if(!specialty.isEmpty()) {
+            vet.setSpecialty(specialty);
+        } else {
+            vet.setSpecialty(null);
+        }
 
         return vet;
     }

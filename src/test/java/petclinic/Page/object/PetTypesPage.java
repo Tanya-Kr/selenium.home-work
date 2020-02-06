@@ -20,20 +20,20 @@ public class PetTypesPage extends BasePage {
 
     public List<Type> getPetTypesList() {
         List<Type> types = new ArrayList<>();
-        WebElement typesTable = driver.findElement(By.id("pettypes"));
+        WebElement typesTable = driver.findElement(By.xpath("//*[@id='pettypes']"));
 
-        List<WebElement> typesList = typesTable.findElements(By.xpath(".//tbody/tr"));
-        for (WebElement userRow : typesList) {
-            types.add(createPetTypes(userRow));
+        List<WebElement> typesList = typesTable.findElements(By.xpath("./tbody/tr"));
+        for (WebElement typesRow : typesList) {
+            types.add(createPetTypes(typesRow));
         }
 
         return types;
     }
-    //*[@id='pettypes']/tbody/tr/td[1]
-    private Type createPetTypes(WebElement userRow) {
+
+    private Type createPetTypes(WebElement typesRow) {
         Type type = new Type();
-        String typeName = userRow.findElement(By.xpath("./td[1]//*[@name='pettype_name']")).getText();
-        type.setName(typeName);
+
+        type.setName(typesRow.findElement(By.xpath(".//*[@name='pettype_name']")).getAttribute("value"));
 
         return type;
     }
