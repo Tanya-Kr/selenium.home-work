@@ -13,12 +13,12 @@ public class PetOwner {
     private Integer id;
     @JsonProperty("name")
     private String name;
-//    @JsonProperty("owner")
-//    private Owner owner;
-//    @JsonProperty("type")
-//    private Type type;
-//    @JsonProperty("visits")
-//    private List<Visit> visits = null;
+    @JsonProperty("owner")
+    private Owner owner;
+    @JsonProperty("type")
+    private Type type;
+    @JsonProperty("visits")
+    private List<Visit> visits = null;
 
     public String getBirthDate() {
         return birthDate;
@@ -44,27 +44,15 @@ public class PetOwner {
         this.name = name;
     }
 
-//    public Owner getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(Owner owner) {
-//        this.owner = owner;
-//    }
-//
-//    public Type getType() {
-//        return type;
-//    }
-//
-//    public void setType(Type type) {
-//        this.type = type;
-//    }
-//
-//    public List<Visit> getVisits() {
-//        return visits;
-//    }
-//
-//    public void setVisits(List<Visit> visits) {
-//        this.visits = visits;
-//    }
+    public Owner getOwner() { return owner; }
+
+    public void setOwner(Owner owner) { this.owner = owner; }
+
+    public Type getType() { return type; }
+
+    public void setType(Type type) { this.type = type; }
+
+    public List<Visit> getVisits() { return visits; }
+
+    public void setVisits(List<Visit> visits) { this.visits = visits; }
 }

@@ -17,10 +17,10 @@ public class Pet {
     private String name;
     @JsonProperty("owner")
     private Owner owner;
-//    @JsonProperty("type")
-//    private Type type;
-//    @JsonProperty("visits")
-//    private List<Visit> visits = null;
+    @JsonProperty("type")
+    private String type;
+    @JsonProperty("visits")
+    private List<Visit> visits = null;
 
     public Pet() {
     }
@@ -60,13 +60,13 @@ public class Pet {
         this.birthDate = birthDate;
     }
 
-//    public Type getType() {
-//        return type;
-//    }
-//
-//    public void setType(Type type) {
-//        this.type = type;
-//    }
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -80,13 +80,13 @@ public class Pet {
         this.owner = owner;
     }
 
-//    public List<Visit> getVisits() {
-//        return visits;
-//    }
-//
-//    public void setVisits(List<Visit> visits) {
-//        this.visits = visits;
-//    }
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
+    }
 
     @Override
     public String toString() {

@@ -25,12 +25,17 @@ public class NewVetTest extends TestBase {
 
         NewVeterinarianPage newVeterinarianPage = veterinariansPage.clickAddVetBtn();
 
-        newVeterinarianPage.fillVet(fillVetObject());
+        Vet vet = new Vet();
+        vet.setFirstName("Tom");
+        vet.setLastName("Jerry");
+        vet.setSpecialty(chooseSpecialty());
+
+        newVeterinarianPage.fillVet(vet);
 
         veterinariansPage = newVeterinarianPage.clickAddVetButton();
 
         List<Vet> vetsNames = veterinariansPage.getVetsList();
-        assertThat(vetsNames).contains(fillVetObject());
+        assertThat(vetsNames).contains(vet);
 
     }
 
@@ -64,18 +69,8 @@ public class NewVetTest extends TestBase {
     private String chooseSpecialty() {
         List<WebElement> specialtyList = driver.findElements(By.cssSelector("#specialties option"));
         Random rand = new Random();
-//        String specialty = specialtyList.get(rand.nextInt(specialtyList.size())).getText();
-        String specialty = specialtyList.get(0).getText();
-        return specialty;
+        String specialty = specialtyList.get(rand.nextInt(specialtyList.size())).getText();
+        System.out.println(specialty);
+        return specialty.trim();
     }
-
-    public Vet fillVetObject() {
-        Vet vet = new Vet();
-        vet.setFirstName("Tom");
-        vet.setLastName("Jerry");
-        vet.setSpecialty(chooseSpecialty());
-
-        return vet;
-    }
-
 }

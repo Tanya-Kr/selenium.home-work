@@ -1,7 +1,7 @@
 package petclinic;
 
-import com.automation.petclinic.configuration.Configuration;
-import com.automation.petclinic.configuration.WebDriverFactory;
+import petclinic.configuration.Configuration;
+import petclinic.configuration.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;

@@ -73,11 +73,11 @@ public class OwnersPage extends BasePage {
         return owner;
     }
 
-//    public OwnerInformationPage openOwnerInfo(String fullName) {
-//        WebElement owner = driver.findElement(By.xpath("//a[text()='"+fullName+"']"));
-//        owner.click();
-//        return new OwnerInformationPage(driver);
-//    }
+    public OwnerInformationPage openOwnerInfo(String fullName) {
+        WebElement owner = driver.findElement(By.xpath("//a[text()='"+fullName+"']"));
+        owner.click();
+        return new OwnerInformationPage(driver);
+    }
 
 
 }

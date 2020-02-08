@@ -1,8 +1,6 @@
-package com.automation.petclinic.configuration;
+package petclinic.configuration;
 
-/**
- * Created by alpa on 1/5/20
- */
+
 public class UrlBuilder {
 
     private String schema;

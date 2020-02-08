@@ -1,5 +1,6 @@
 package petclinic;
 
+import petclinic.Page.object.OwnerInformationPage;
 import petclinic.model.Owner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -75,8 +76,6 @@ public class OwnerTests extends TestBase {
     private String getInfoValue(String info) {
         return driver.findElement(By.xpath("//th[text()='"+info+"']/following-sibling::td")).getText();
     }
-
-
 
 
 }

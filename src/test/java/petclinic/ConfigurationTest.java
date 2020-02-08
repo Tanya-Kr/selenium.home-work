@@ -1,6 +1,6 @@
 package petclinic;
 
-import com.automation.petclinic.configuration.Configuration;
+import petclinic.configuration.Configuration;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
